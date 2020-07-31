@@ -1,5 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+//Arrays
+var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "<", ">", "?", "~", "{", "}"];
+var lowerCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
 
 
 // Write password to the #password input
@@ -13,8 +19,19 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-var passwordChar = prompt("How many characters would you like your password to contain?");
+//Confirm the number of password characters
+var passwordLength = (prompt("How many characters would you like your password to contain?"));
+  while(passwordLength <= 8 || passwordLength >= 128) {
+    alert("Password length must be between 8-128 characters.");
+    var passwordLength = (prompt("How many characters would you like your password to contain?"));
+  }
+
+
+//confirm special characters in the password
 var specialChar = confirm("Click ok to confirm special characters");
+//confirm numeric characters in the password
 var numChar = confirm("Click ok to confirm numeric characters");
+//confirm lowercase characters in the password
 var lowerChar = confirm("Click ok to confirm lowercase characters");
+//confirm uppercase characters in the password
 var upperChar = confirm("Click ok to confirm uppercase characters");
