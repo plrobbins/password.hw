@@ -35,3 +35,11 @@ var numChar = confirm("Click ok to confirm numeric characters");
 var lowerChar = confirm("Click ok to confirm lowercase characters");
 //confirm uppercase characters in the password
 var upperChar = confirm("Click ok to confirm uppercase characters");
+//creating a loop
+while(specialChar === false && numChar === false && lowerChar === false && upperChar === false) {
+  alert("You have to choose at least one parameter");
+  var specialChar = confirm("Click ok to confirm special characters");
+  var numChar = confirm("Click ok to confirm numeric characters");
+  var lowerChar = confirm("Click ok to confirm lowercase characters");
+  var upperChar = confirm("Click ok to confirm uppercase characters");
+}
