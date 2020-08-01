@@ -8,14 +8,7 @@ var upperCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L
 
 
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -59,3 +52,18 @@ if (upperChar) {
   passwordChar = passwordChar.concat(upperChar);
 }
 
+//Looping to generate the randon password
+var randomPassword = ""
+
+for (var i = 0; i < passwordLength; i++) {
+  randomPassword = randomPassword + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+}
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
