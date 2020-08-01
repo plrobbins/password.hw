@@ -43,3 +43,19 @@ while(specialChar === false && numChar === false && lowerChar === false && upper
   var lowerChar = confirm("Click ok to confirm lowercase characters");
   var upperChar = confirm("Click ok to confirm uppercase characters");
 }
+
+//Password parameters
+var passwordChar = []
+if (specialChar) {
+  passwordChar = passwordChar.concat(specialCharacters);
+}
+if (numChar) {
+  passwordChar = passwordChar.concat(number);
+}
+if (lowerChar) {
+  passwordChar = passwordChar.concat(lowerChar);
+}
+if (upperChar) {
+  passwordChar = passwordChar.concat(upperChar);
+}
+
