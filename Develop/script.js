@@ -11,9 +11,11 @@ var upperCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
+  generateBtn.addEventListener("click", writePassword);
 //Confirm the number of password characters
-var passwordLength = (prompt("How many characters would you like your password to contain?"));
+function generatePassword() {
+  var passwordLength = (prompt("How many characters would you like your password to contain?"));
   while(passwordLength <= 8 || passwordLength >= 128) {
     alert("Password length must be between 8-128 characters.");
     var passwordLength = (prompt("How many characters would you like your password to contain?"));
@@ -36,7 +38,6 @@ while(specialChar === false && numChar === false && lowerChar === false && upper
   var lowerChar = confirm("Click ok to confirm lowercase characters");
   var upperChar = confirm("Click ok to confirm uppercase characters");
 }
-
 //Password parameters
 var passwordChar = []
 if (specialChar) {
@@ -46,18 +47,23 @@ if (numChar) {
   passwordChar = passwordChar.concat(number);
 }
 if (lowerChar) {
-  passwordChar = passwordChar.concat(lowerChar);
+  passwordChar = passwordChar.concat(lowerCharacters);
 }
 if (upperChar) {
-  passwordChar = passwordChar.concat(upperChar);
+  passwordChar = passwordChar.concat(upperCharacters);
 }
+
+console.log(passwordChar);
 
 //Looping to generate the randon password
 var randomPassword = ""
 
 for (var i = 0; i < passwordLength; i++) {
   randomPassword = randomPassword + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+  console.log(randomPassword);
 }
+}
+
 
 // Write password to the #password input
 function writePassword() {
