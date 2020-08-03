@@ -12,56 +12,57 @@ var upperCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L
 
 // Add event listener to generate button
 
-  generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
 //Confirm the number of password characters
 function generatePassword() {
   var passwordLength = (prompt("How many characters would you like your password to contain?"));
-  while(passwordLength <= 8 || passwordLength >= 128) {
+  while (passwordLength <= 8 || passwordLength >= 128) {
     alert("Password length must be between 8-128 characters.");
-    var passwordLength = (prompt("How many characters would you like your password to contain?"));
+    passwordLength = (prompt("How many characters would you like your password to contain?"));
   }
 
 
-//confirm special characters in the password
-var specialChar = confirm("Click ok to confirm special characters");
-//confirm numeric characters in the password
-var numChar = confirm("Click ok to confirm numeric characters");
-//confirm lowercase characters in the password
-var lowerChar = confirm("Click ok to confirm lowercase characters");
-//confirm uppercase characters in the password
-var upperChar = confirm("Click ok to confirm uppercase characters");
-//creating a loop
-while(specialChar === false && numChar === false && lowerChar === false && upperChar === false) {
-  alert("You have to choose at least one parameter");
+  //confirm special characters in the password
   var specialChar = confirm("Click ok to confirm special characters");
+  //confirm numeric characters in the password
   var numChar = confirm("Click ok to confirm numeric characters");
+  //confirm lowercase characters in the password
   var lowerChar = confirm("Click ok to confirm lowercase characters");
+  //confirm uppercase characters in the password
   var upperChar = confirm("Click ok to confirm uppercase characters");
-}
-//Password parameters
-var passwordChar = []
-if (specialChar) {
-  passwordChar = passwordChar.concat(specialCharacters);
-}
-if (numChar) {
-  passwordChar = passwordChar.concat(number);
-}
-if (lowerChar) {
-  passwordChar = passwordChar.concat(lowerCharacters);
-}
-if (upperChar) {
-  passwordChar = passwordChar.concat(upperCharacters);
-}
+  //creating a loop
+  while (!specialChar && !numChar && !lowerChar&& !upperChar) {
+    alert("You have to choose at least one parameter");
+    var specialChar = confirm("Click ok to confirm special characters");
+    var numChar = confirm("Click ok to confirm numeric characters");
+    var lowerChar = confirm("Click ok to confirm lowercase characters");
+    var upperChar = confirm("Click ok to confirm uppercase characters");
+  }
+  //Password parameters
+  var passwordChar = []
+  if (specialChar) {
+    passwordChar = passwordChar.concat(specialCharacters);
+  }
+  if (numChar) {
+    passwordChar = passwordChar.concat(number);
+  }
+  if (lowerChar) {
+    passwordChar = passwordChar.concat(lowerCharacters);
+  }
+  if (upperChar) {
+    passwordChar = passwordChar.concat(upperCharacters);
+  }
 
-console.log(passwordChar);
+  console.log(passwordChar);
 
-//Looping to generate the randon password
-var randomPassword = ""
+  //Looping to generate the randon password
+  var randomPassword = ""
 
-for (var i = 0; i < passwordLength; i++) {
-  randomPassword = randomPassword + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+  for (var i = 0; i < passwordLength; i++) {
+    randomPassword = randomPassword + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+  }
   console.log(randomPassword);
-}
+  return randomPassword
 }
 
 
