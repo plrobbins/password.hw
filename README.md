@@ -13,4 +13,4 @@ This application will generate a random password based on selection made by the 
 Here is an image of what a generated password will look like once it is generated.
 
 **Password Generator**
-![Password Generator]()
+![Password Generator](https://github.com/plrobbins/password.hw/blob/master/Images/PasswordGen.png)
